@@ -1,8 +1,10 @@
 ---
 ---
 
-<img src="images/Kristi Chau.jpg" style="width:40%; border:4px solid, margin-right: 20px" align="left">
-
+<img src="images/Kristi Chau.jpg" style="width:40%; border-width:10px; border-color:mistyrose; border-style:solid; margin-right: 30px" align="left">  
+  
 ## Welcome to my website!
 
+<font size="3">
 Hi, my name is Kristi Chau! I am a second year MPH student in the department of Epidemiology at Columbia University Mailman School of Public Health. Please have a look around my website!
+</font>

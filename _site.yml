@@ -1,16 +1,12 @@
 name: "kristi chau"
 output_dir: "."
 navbar:
-  title: "Kristi Chau"
+  title: "KRISTI CHAU"
   left:
-    - text: "Resume"
+    - text: "Experience"
       href: resume.html
-    - text: Examples
-      menu: 
-      - text: "Plotly"
-        href: plotly.html
-      - text: "Dashboard"
-        href: dashboard.html
+    - text: "Plots!"
+      href: dashboard.html
   right:
     - icon: fa-envelope fa-lg
       href: mailto:<kpc2124@columbia.edu>
@@ -20,4 +16,4 @@ navbar:
       href: http://github.com/kpc2124/
 output:
   html_document:
-    theme: paper
+    theme: simplex
