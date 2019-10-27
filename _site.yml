@@ -1,0 +1,23 @@
+name: "kristi chau"
+output_dir: "."
+navbar:
+  title: "Kristi Chau"
+  left:
+    - text: "Resume"
+      href: resume.html
+    - text: Examples
+      menu: 
+      - text: "Plotly"
+        href: plotly.html
+      - text: "Dashboard"
+        href: dashboard.html
+  right:
+    - icon: fa-envelope fa-lg
+      href: mailto:<kpc2124@columbia.edu>
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/kristichau
+    - icon: fa-github fa-lg
+      href: http://github.com/kpc2124/
+output:
+  html_document:
+    theme: paper

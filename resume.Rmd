@@ -1,0 +1,9 @@
+---
+title: "Resume"
+output: html_document
+---
+
+```{r resume, echo=FALSE, out.width = "100%"}
+knitr::include_graphics("./images/Kristi Chau Resume 20191021.pdf")
+```
+
