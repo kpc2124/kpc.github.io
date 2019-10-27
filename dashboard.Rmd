@@ -1,5 +1,5 @@
 ---
-title: "NYC Restaurant Inspections"
+title: "Upper West Side Restaurant Inspections in 2017"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -8,10 +8,29 @@ output:
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+library(tidyverse)
+library(viridis)
 library(p8105.datasets)
+library(plotly)
+```
+
+```{r}
+set.seed(1)
 
 data(rest_inspec)
+rest_insp = 
+  rest_inspec %>% 
+  mutate(grade_date2 = grade_date) %>% 
+  separate(grade_date2, c("grade_year","grade_mon","grade_day"),sep = "-") %>% 
+  mutate(grade_md = str_c(grade_mon,'-',grade_day)) %>% 
+  filter(
+    grade_year == 2017,
+    !is.na(score),
+    boro == "MANHATTAN",
+    zipcode == c(10025,10024,10023,10069)
+    )
 ```
+
 
 Column {data-width=650}
 -----------------------------------------------------------------------
@@ -19,7 +38,14 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
-
+rest_insp %>% 
+  mutate(cuisine_description = fct_reorder(cuisine_description,score)) %>% 
+  plot_ly(
+    y = ~score,
+    color = ~cuisine_description,
+    type = "box",
+    colors = "Set2"
+    )
 ```
 
 Column {data-width=350}
@@ -28,12 +54,21 @@ Column {data-width=350}
 ### Chart B
 
 ```{r}
-
+rest_insp %>% 
+  count(cuisine_description) %>%
+  mutate(cuisine_description = fct_reorder(cuisine_description,n)) %>% 
+  plot_ly(x = ~cuisine_description, y = ~n, color = ~cuisine_description, type = "bar", colors = "Set2")
 ```
 
 ### Chart C
 
 ```{r}
-
+rest_insp %>% 
+  mutate(
+    text_label = str_c(dba, '\nGrade: ', grade),
+    zipcode = as.factor(zipcode)
+    ) %>% 
+  plot_ly(
+    x = ~violation_code, y = ~score, type = "scatter", mode = "markers",color = ~critical_flag, text = ~text_label, colors = "Set2")
 ```
 
