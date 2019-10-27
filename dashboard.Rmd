@@ -32,23 +32,22 @@ rest_insp =
 ```
 
 
-Column {data-width=650}
+Column {data-width=500}
 -----------------------------------------------------------------------
 
 ### Chart A
 
 ```{r}
 rest_insp %>% 
-  mutate(cuisine_description = fct_reorder(cuisine_description,score)) %>% 
+  mutate(
+    text_label = str_c(dba, '\nGrade: ', grade),
+    zipcode = as.factor(zipcode)
+    ) %>% 
   plot_ly(
-    y = ~score,
-    color = ~cuisine_description,
-    type = "box",
-    colors = "Set2"
-    )
+    x = ~violation_code, y = ~score, type = "scatter", mode = "markers",color = ~critical_flag, text = ~text_label, colors = "Set2")
 ```
 
-Column {data-width=350}
+Column {data-width=500}
 -----------------------------------------------------------------------
 
 ### Chart B
@@ -64,11 +63,12 @@ rest_insp %>%
 
 ```{r}
 rest_insp %>% 
-  mutate(
-    text_label = str_c(dba, '\nGrade: ', grade),
-    zipcode = as.factor(zipcode)
-    ) %>% 
+  mutate(cuisine_description = fct_reorder(cuisine_description,score)) %>% 
   plot_ly(
-    x = ~violation_code, y = ~score, type = "scatter", mode = "markers",color = ~critical_flag, text = ~text_label, colors = "Set2")
+    y = ~score,
+    color = ~cuisine_description,
+    type = "box",
+    colors = "Set2"
+    )
 ```
 
