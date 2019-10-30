@@ -1,5 +1,5 @@
 ---
-title: "Upper West Side Restaurant Inspections in 2017"
+title: "Manhattan Asian Restaurant Inspections in 2017"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -24,18 +24,17 @@ rest_insp =
   separate(grade_date2, c("grade_year","grade_mon","grade_day"),sep = "-") %>% 
   mutate(grade_md = str_c(grade_mon,'-',grade_day)) %>% 
   filter(
-    grade_year == 2017,
-    !is.na(score),
     boro == "MANHATTAN",
-    zipcode == c(10025,10024,10023,10069)
+    cuisine_description %in% c("Korean","Pakistani","Thai","Asian","Indian","Chinese","Japanese","Vietnamese/Cambodian/Malaysia","Chinese/Cuban","Chinese/Japanese"),
+    grade_year == 2017,
+    !is.na(score)
     )
 ```
-
 
 Column {data-width=500}
 -----------------------------------------------------------------------
 
-### Chart A
+### Inspected restaurants' violation codes and scores, by critical/not critical status (hover to see the grade)
 
 ```{r}
 rest_insp %>% 
@@ -50,7 +49,7 @@ rest_insp %>%
 Column {data-width=500}
 -----------------------------------------------------------------------
 
-### Chart B
+### Number of restaurants, by cuisine, that were inspected in 2017
 
 ```{r}
 rest_insp %>% 
@@ -59,7 +58,7 @@ rest_insp %>%
   plot_ly(x = ~cuisine_description, y = ~n, color = ~cuisine_description, type = "bar", colors = "Set2")
 ```
 
-### Chart C
+### Scores distribution, by cuisine
 
 ```{r}
 rest_insp %>% 
