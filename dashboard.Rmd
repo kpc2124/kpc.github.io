@@ -29,6 +29,28 @@ rest_insp =
     grade_year == 2017,
     !is.na(score)
     )
+
+f1 = 
+  list(
+    size = 10,
+    color = "darkgrey"
+  )
+
+a1 = 
+  list(
+    tickangle = 45,
+    tickfont = f1
+  )
+
+a2 = 
+  list(
+    title = "",
+    tickangle = 45,
+    tickfont = f1
+  )
+
+a3 = 
+  list(title = "")
 ```
 
 Column {data-width=500}
@@ -43,7 +65,14 @@ rest_insp %>%
     zipcode = as.factor(zipcode)
     ) %>% 
   plot_ly(
-    x = ~violation_code, y = ~score, type = "scatter", mode = "markers",color = ~critical_flag, text = ~text_label, colors = "Set2")
+    x = ~violation_code,
+    y = ~score,
+    type = "scatter",
+    mode = "markers",
+    color = ~critical_flag,
+    text = ~text_label,
+    colors = "Set2"
+    )
 ```
 
 Column {data-width=500}
@@ -55,7 +84,14 @@ Column {data-width=500}
 rest_insp %>% 
   count(cuisine_description) %>%
   mutate(cuisine_description = fct_reorder(cuisine_description,n)) %>% 
-  plot_ly(x = ~cuisine_description, y = ~n, color = ~cuisine_description, type = "bar", colors = "Set2")
+  plot_ly(
+    x = ~cuisine_description,
+    y = ~n,
+    color = ~cuisine_description,
+    type = "bar",
+    colors = "Set2"
+    ) %>%
+  layout(xaxis = a2, yaxis = a3)
 ```
 
 ### Scores distribution, by cuisine
@@ -68,6 +104,7 @@ rest_insp %>%
     color = ~cuisine_description,
     type = "box",
     colors = "Set2"
-    )
+    ) %>%
+  layout(xaxis = a1)
 ```
 
