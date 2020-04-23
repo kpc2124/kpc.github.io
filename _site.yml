@@ -5,6 +5,7 @@ navbar:
   left:
     - text: "Experience"
       href: resume.html
+      ## href: https://kpc2124.github.io/kpc.github.io/pdfs/Kristi%20Chau%20Resume.pdf
     - text: "Plots!"
       href: dashboard.html
   right:
