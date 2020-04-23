@@ -4,7 +4,7 @@ output: html_document
 ---
 
 <div>
-<object data="https://kpc2124.github.io/kpc.github.io/pdfs/Kristi%20Chau%20Resume.pdf" type="application/pdf" height = 100% width = 100% >
+<object data="https://kpc2124.github.io/kpc.github.io/pdfs/Kristi%20Chau%20Resume.pdf" type="application/pdf" height = "100%" width = "100%" >
     <embed src="https://kpc2124.github.io/kpc.github.io/pdfs/Kristi%20Chau%20Resume.pdf">
         This browser does not support PDFs. Please download the PDF to view it: <a href="https://kpc2124.github.io/kpc.github.io/pdfs/Kristi%20Chau%20Resume.pdf">Download PDF</a>.</p>
     </embed>
