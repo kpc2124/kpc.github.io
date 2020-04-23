@@ -1,7 +1,7 @@
 ---
 ---
 
-<img src="images/Kristi Chau.jpg" style="width:40%; border-width:10px; border-color:mistyrose; border-style:solid; margin-right: 30px" align="left">  
+<img src="images/Kristi Chau.jpg" style="width:35%; border-width:10px; border-color:mistyrose; border-style:solid; margin-right: 30px" align="left">  
   
 ## Welcome to my website!
 
